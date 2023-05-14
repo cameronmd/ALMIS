@@ -6,17 +6,121 @@
         xmlns:local="clr-namespace:ALMIS.View"
         xmlns:viewModel="clr-namespace:ALMIS.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindowView" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen">
+        Title="MainWindowView" 
+        Height="600" Width="920"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Language="en-GB">
 
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
-    
-    <Grid>
-        <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
-                   FontSize="30"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
-    </Grid>
+
+    <Border Background="#272537"
+            CornerRadius="20">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="ALMIS"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="30"
+                       Margin="20,0,0,0"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat" />
+
+            <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
+                       FontSize="30"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Grid.Column="1"
+                       Foreground="White"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"
+                       Margin="20,0,0,0" />
+
+            <TextBlock Text="Principal Amount (£)"
+                       Foreground="DarkGray"
+                       FontSize="25"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"                             
+                       Margin="20,20,0,0"
+                       Grid.Column="1"
+                       Grid.Row="1" />
+
+            <TextBox Grid.Row="1" 
+                     Grid.Column="1"
+                     Text="{Binding PrincipalAmount, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="20,50,460,19"
+                     Foreground="DarkGray" />
+
+            <TextBlock Text="Product A Total Return:"
+                       Foreground="DarkGray"
+                       FontSize="25"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"                             
+                       Margin="20,20,0,0"
+                       Grid.Column="1"
+                       Grid.Row="2" />
+
+            <TextBlock Grid.Row="2" 
+                       Grid.Column="1"
+                       Text="{Binding ProductAReturn, StringFormat={}{0:C}}"                     
+                       Margin="20,50,460,16"
+                       Foreground="DarkGray"
+                       FontSize="18"/>
+
+            <TextBlock Text="2 year fixed at 3% and interest is applied at the end of the fixed term"
+                       Foreground="DarkGray"
+                       FontSize="18"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"                             
+                       Margin="20,80,0,0"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       TextWrapping="Wrap"/>
+
+            <TextBlock Text="Product B Total Return:"
+                       Foreground="DarkGray"
+                       FontSize="25"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"                             
+                       Margin="20,20,0,0"
+                       Grid.Column="1"
+                       Grid.Row="3" />
+
+            <TextBlock Grid.Row="3" 
+                       Grid.Column="1"
+                       Text="{Binding ProductBReturn, StringFormat={}{0:C}}"                     
+                       Margin="20,50,460,16"
+                       Foreground="DarkGray"
+                       FontSize="18" />
+
+            <TextBlock Text="2 year fixed at 2.95% and interest is compounded monthly"
+                       Foreground="DarkGray"
+                       FontSize="18"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"                             
+                       Margin="20,80,0,0"
+                       Grid.Column="1"
+                       Grid.Row="3"
+                       TextWrapping="Wrap"/>
+        </Grid>
+    </Border>
 </Window>
