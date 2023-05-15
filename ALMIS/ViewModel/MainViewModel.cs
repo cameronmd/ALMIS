@@ -1,12 +1,7 @@
 ﻿using ALMIS.Model;
 using ALMIS.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace ALMIS.ViewModel
 {
@@ -85,7 +80,7 @@ namespace ALMIS.ViewModel
             }
         }
 
-        private void CalculateReturns()
+        public void CalculateReturns()
         {
             InvestmentProductModel productA = new InvestmentProductModel
             {
